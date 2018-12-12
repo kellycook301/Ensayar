@@ -39,3 +39,13 @@ C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug
 C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
 C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
 C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Create.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Delete.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Details.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Edit.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Index.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\TimeTables\Create.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\TimeTables\Delete.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\TimeTables\Details.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\TimeTables\Edit.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\TimeTables\Index.g.cshtml.cs
