@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RealRehearsalSpace.Data;
 
-namespace RealRehearsalSpace.Data.Migrations
+namespace RealRehearsalSpace.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181213151053_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -227,7 +229,11 @@ namespace RealRehearsalSpace.Data.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
+                    b.Property<int>("TimeTableId");
+
                     b.HasKey("RoomId");
+
+                    b.HasIndex("TimeTableId");
 
                     b.ToTable("Rooms");
                 });
@@ -320,6 +326,14 @@ namespace RealRehearsalSpace.Data.Migrations
                     b.HasOne("RealRehearsalSpace.Models.ApplicationUser", "User")
                         .WithMany("BookedRooms")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("RealRehearsalSpace.Models.Room", b =>
+                {
+                    b.HasOne("RealRehearsalSpace.Models.TimeTable", "TimeTable")
+                        .WithMany()
+                        .HasForeignKey("TimeTableId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

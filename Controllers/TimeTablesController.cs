@@ -1,153 +1,186 @@
 ﻿using System;
+using Dapper;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using RealRehearsalSpace.Data;
 using RealRehearsalSpace.Models;
+using RealRehearsalSpace.Models.ViewModels;
 
 namespace RealRehearsalSpace.Controllers
 {
     public class TimeTablesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IConfiguration _config;
 
-        public TimeTablesController(ApplicationDbContext context)
+        public TimeTablesController(IConfiguration config)
         {
-            _context = context;
+            _config = config;
+        }
+
+        public IDbConnection Connection
+        {
+            get
+            {
+                return new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            }
         }
 
         // GET: TimeTables
-        public async Task<IActionResult> Index()
+        public async Task<ActionResult> Index()
         {
-            return View(await _context.TimeTables.ToListAsync());
+            using (IDbConnection conn = Connection)
+            {
+
+                IEnumerable<TimeTable> timeTables = await conn.QueryAsync<TimeTable>(@"
+                    SELECT 
+                        t.TimeTableId,
+                        t.BookTime,
+                    FROM TimeTable t
+                ");
+                return View(timeTables);
+            }
         }
 
         // GET: TimeTables/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<ActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            string sql = $@"
+            SELECT
+                t.TimeTableId,
+                t.BookTime
+            FROM TimeTables t
+            WHERE t.TimeTableId = {id}
+            ";
 
-            var timeTable = await _context.TimeTables
-                .FirstOrDefaultAsync(m => m.TimeTableId == id);
-            if (timeTable == null)
+            using (IDbConnection conn = Connection)
             {
-                return NotFound();
+                TimeTable timeTable = await conn.QueryFirstAsync<TimeTable>(sql);
+                CreateBookedRoomViewModel model = new CreateBookedRoomViewModel(_config);
+                return View(model);
             }
-
-            return View(timeTable);
         }
 
         // GET: TimeTables/Create
-        public IActionResult Create()
+        public ActionResult Create()
         {
-            return View();
+            var model = new CreateBookedRoomViewModel(_config);
+            return View(model);
         }
 
         // POST: TimeTables/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TimeTableId,BookTime")] TimeTable timeTable)
+        public async Task<ActionResult> Create(CreateBookedRoomViewModel model)
         {
-            if (ModelState.IsValid)
+            string sql = $@"INSERT INTO TimeTable 
+            (BookTime)
+            VALUES
+            (
+                '{model.timeTable.BookTime}'
+            );";
+
+            using (IDbConnection conn = Connection)
             {
-                _context.Add(timeTable);
-                await _context.SaveChangesAsync();
+                var newId = await conn.ExecuteAsync(sql);
                 return RedirectToAction(nameof(Index));
             }
-            return View(timeTable);
+
         }
 
         // GET: TimeTables/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        [HttpGet]
+        public async Task<ActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            string sql = $@"
+            SELECT
+                t.TimeTableId,
+                t.BookTime,
+            FROM TimeTable t
+            WHERE t.TimeTableId = {id}
+            ";
 
-            var timeTable = await _context.TimeTables.FindAsync(id);
-            if (timeTable == null)
+            using (IDbConnection conn = Connection)
             {
-                return NotFound();
+                TimeTable timeTable = await conn.QueryFirstAsync<TimeTable>(sql);
+                CreateBookedRoomViewModel model = new CreateBookedRoomViewModel(_config);
+                model.timeTable = timeTable;
+                return View(model);
             }
-            return View(timeTable);
         }
 
         // POST: TimeTables/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TimeTableId,BookTime")] TimeTable timeTable)
+        public async Task<ActionResult> Edit(int id, CreateBookedRoomViewModel model)
         {
-            if (id != timeTable.TimeTableId)
+            try
             {
-                return NotFound();
-            }
+                TimeTable timeTable = model.timeTable;
 
-            if (ModelState.IsValid)
-            {
-                try
+                // TODO: Add update logic here
+                string sql = $@"
+                    UPDATE TimeTable
+                    SET BookTime = '{timeTable.BookTime}'
+                    WHERE Id = {id}";
+
+                using (IDbConnection conn = Connection)
                 {
-                    _context.Update(timeTable);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TimeTableExists(timeTable.TimeTableId))
+                    int rowsAffected = await conn.ExecuteAsync(sql);
+                    if (rowsAffected > 0)
                     {
-                        return NotFound();
+                        return RedirectToAction(nameof(Index));
                     }
-                    else
-                    {
-                        throw;
-                    }
+                    return BadRequest();
+
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(timeTable);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: TimeTables/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<ActionResult> DeleteConfirm(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            string sql = $@"
+            SELECT
+                t.TimeTableId,
+                t.BookTime,
+            FROM TimeTable t
+            WHERE t.Id = {id}
+            ";
 
-            var timeTable = await _context.TimeTables
-                .FirstOrDefaultAsync(m => m.TimeTableId == id);
-            if (timeTable == null)
+            using (IDbConnection conn = Connection)
             {
-                return NotFound();
+                TimeTable timeTable = await conn.QueryFirstAsync<TimeTable>(sql);
+                return View(timeTable);
             }
-
-            return View(timeTable);
         }
 
         // POST: TimeTables/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            var timeTable = await _context.TimeTables.FindAsync(id);
-            _context.TimeTables.Remove(timeTable);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+            string sql = $@"DELETE FROM TimeTable WHERE Id = {id}";
 
-        private bool TimeTableExists(int id)
-        {
-            return _context.TimeTables.Any(e => e.TimeTableId == id);
+            using (IDbConnection conn = Connection)
+            {
+                int rowsAffected = await conn.ExecuteAsync(sql);
+                if (rowsAffected > 0)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                throw new Exception("No rows affected");
+            }
         }
     }
 }

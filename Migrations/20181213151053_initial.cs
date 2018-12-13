@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RealRehearsalSpace.Data.Migrations
+namespace RealRehearsalSpace.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,11 +40,27 @@ namespace RealRehearsalSpace.Data.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Discriminator = table.Column<string>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TimeTables",
+                columns: table => new
+                {
+                    TimeTableId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    BookTime = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TimeTables", x => x.TimeTableId);
                 });
 
             migrationBuilder.CreateTable(
@@ -153,6 +169,61 @@ namespace RealRehearsalSpace.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Rooms",
+                columns: table => new
+                {
+                    RoomId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: false),
+                    TimeTableId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rooms", x => x.RoomId);
+                    table.ForeignKey(
+                        name: "FK_Rooms_TimeTables_TimeTableId",
+                        column: x => x.TimeTableId,
+                        principalTable: "TimeTables",
+                        principalColumn: "TimeTableId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BookedRooms",
+                columns: table => new
+                {
+                    BookedRoomId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    RoomId = table.Column<int>(nullable: false),
+                    TimeId = table.Column<int>(nullable: false),
+                    TimeTableId = table.Column<int>(nullable: true),
+                    UserId = table.Column<string>(nullable: false),
+                    BookDate = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookedRooms", x => x.BookedRoomId);
+                    table.ForeignKey(
+                        name: "FK_BookedRooms_Rooms_RoomId",
+                        column: x => x.RoomId,
+                        principalTable: "Rooms",
+                        principalColumn: "RoomId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BookedRooms_TimeTables_TimeTableId",
+                        column: x => x.TimeTableId,
+                        principalTable: "TimeTables",
+                        principalColumn: "TimeTableId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_BookedRooms_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -191,6 +262,26 @@ namespace RealRehearsalSpace.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookedRooms_RoomId",
+                table: "BookedRooms",
+                column: "RoomId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookedRooms_TimeTableId",
+                table: "BookedRooms",
+                column: "TimeTableId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookedRooms_UserId",
+                table: "BookedRooms",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Rooms_TimeTableId",
+                table: "Rooms",
+                column: "TimeTableId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -211,10 +302,19 @@ namespace RealRehearsalSpace.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "BookedRooms");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Rooms");
+
+            migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "TimeTables");
         }
     }
 }

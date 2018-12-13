@@ -1,12 +1,18 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using RealRehearsalSpace.Data;
 using RealRehearsalSpace.Models;
+using RealRehearsalSpace.Models.ViewModels;
 
 namespace RealRehearsalSpace.Controllers
 {
@@ -14,9 +20,20 @@ namespace RealRehearsalSpace.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public RoomsController(ApplicationDbContext context)
+        private readonly IConfiguration _config;
+
+        public RoomsController(ApplicationDbContext context, IConfiguration config)
         {
             _context = context;
+            _config = config;
+        }
+
+        public IDbConnection Connection
+        {
+            get
+            {
+                return new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            }
         }
 
         // GET: Rooms
@@ -25,22 +42,24 @@ namespace RealRehearsalSpace.Controllers
             return View(await _context.Rooms.ToListAsync());
         }
 
-        // GET: Rooms/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: TimeTables/Details/5
+        public async Task<ActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            string roomsql = $@"
+            SELECT
+                r.RoomId,
+                r.Name
+            FROM Rooms r
+            WHERE r.RoomId = {id}
+            ";
 
-            var room = await _context.Rooms
-                .FirstOrDefaultAsync(m => m.RoomId == id);
-            if (room == null)
+            using (IDbConnection conn = Connection)
             {
-                return NotFound();
+                Room room = await conn.QueryFirstAsync<Room>(roomsql);
+                CreateBookedRoomViewModel model = new CreateBookedRoomViewModel(_config);
+                model.room = room;
+                return View(model);
             }
-
-            return View(room);
         }
 
         // GET: Rooms/Create
