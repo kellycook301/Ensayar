@@ -56,8 +56,7 @@ namespace RealRehearsalSpace.Controllers
             using (IDbConnection conn = Connection)
             {
                 Room room = await conn.QueryFirstAsync<Room>(roomsql);
-                CreateBookedRoomViewModel model = new CreateBookedRoomViewModel(_config);
-                model.room = room;
+                CreateBookedRoomViewModel model = new CreateBookedRoomViewModel(_config, room);
                 return View(model);
             }
         }

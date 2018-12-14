@@ -21,14 +21,23 @@ namespace RealRehearsalSpace.Models.ViewModels
 
         public CreateBookedRoomViewModel(){ }
 
-        public CreateBookedRoomViewModel(IConfiguration config)
+        public CreateBookedRoomViewModel(IConfiguration config, Room currentRoom)
         {
+            room = currentRoom;
             using (IDbConnection conn = new SqlConnection(config.GetConnectionString("DefaultConnection")))
             {
-                TimeTables = conn.Query<TimeTable>(@"
+                var times = conn.Query<TimeTable>(@"
                     SELECT TimeTableId, BookTime FROM TimeTables;
-                ")
-                .AsEnumerable()
+                ").ToList();
+                var bookedRoomTimes = conn.Query<BookedRoom>($@"
+                    SELECT TimeTableId FROM BookedRooms WHERE RoomId = {room.RoomId};
+                ").ToList();
+
+                foreach (BookedRoom br in bookedRoomTimes)
+                {
+                    times.Remove(br.TimeTable);
+                };
+                TimeTables = times.AsEnumerable()
                 .Select(li => new SelectListItem
                 {
                     Text = li.BookTime,
@@ -38,7 +47,7 @@ namespace RealRehearsalSpace.Models.ViewModels
             }
             TimeTables.Insert(0, new SelectListItem
             {
-                Text = "Choose time...",
+                Text = "Choose A Time To Book...",
                 Value = "0"
             });
         }

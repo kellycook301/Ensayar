@@ -4,19 +4,15 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Room</h4>
-    <hr />
-</div>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-<div>
-    @Html.DisplayNameFor(model => model.room.Name)
-</div>
+<h2>Choose A Time To Book</h2>
 <div class="form-group">
     <label asp-for="TimeTables" class="control-label"></label>
     <select asp-for="timeTable.TimeTableId" asp-items="@Model.TimeTables"></select>
+    <span asp-validation-for="TimeTables" class="text-danger"></span>
+</div>
+<div>
+    <input type="submit" value="Create" class="btn btn-default" />
+</div>
+<div>
+    <a asp-action="Index">Back To List Of Rooms</a>
 </div>

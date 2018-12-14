@@ -49,30 +49,30 @@ namespace RealRehearsalSpace.Controllers
         }
 
         // GET: TimeTables/Details/5
-        public async Task<ActionResult> Details(int id)
-        {
-            string sql = $@"
-            SELECT
-                t.TimeTableId,
-                t.BookTime
-            FROM TimeTables t
-            WHERE t.TimeTableId = {id}
-            ";
+        //public async Task<ActionResult> Details(int id)
+        //{
+        //    string sql = $@"
+        //    SELECT
+        //        t.TimeTableId,
+        //        t.BookTime
+        //    FROM TimeTables t
+        //    WHERE t.TimeTableId = {id}
+        //    ";
 
-            using (IDbConnection conn = Connection)
-            {
-                TimeTable timeTable = await conn.QueryFirstAsync<TimeTable>(sql);
-                CreateBookedRoomViewModel model = new CreateBookedRoomViewModel(_config);
-                return View(model);
-            }
-        }
+        //    using (IDbConnection conn = Connection)
+        //    {
+        //        TimeTable timeTable = await conn.QueryFirstAsync<TimeTable>(sql);
+        //        CreateBookedRoomViewModel model = new CreateBookedRoomViewModel(_config);
+        //        return View(model);
+        //    }
+        //}
 
         // GET: TimeTables/Create
-        public ActionResult Create()
-        {
-            var model = new CreateBookedRoomViewModel(_config);
-            return View(model);
-        }
+        //public ActionResult Create()
+        //{
+        //    var model = new CreateBookedRoomViewModel(_config);
+        //    return View(model);
+        //}
 
         // POST: TimeTables/Create
         [HttpPost]
@@ -95,25 +95,25 @@ namespace RealRehearsalSpace.Controllers
         }
 
         // GET: TimeTables/Edit/5
-        [HttpGet]
-        public async Task<ActionResult> Edit(int id)
-        {
-            string sql = $@"
-            SELECT
-                t.TimeTableId,
-                t.BookTime,
-            FROM TimeTable t
-            WHERE t.TimeTableId = {id}
-            ";
+        //[HttpGet]
+        //public async Task<ActionResult> Edit(int id)
+        //{
+        //    string sql = $@"
+        //    SELECT
+        //        t.TimeTableId,
+        //        t.BookTime,
+        //    FROM TimeTable t
+        //    WHERE t.TimeTableId = {id}
+        //    ";
 
-            using (IDbConnection conn = Connection)
-            {
-                TimeTable timeTable = await conn.QueryFirstAsync<TimeTable>(sql);
-                CreateBookedRoomViewModel model = new CreateBookedRoomViewModel(_config);
-                model.timeTable = timeTable;
-                return View(model);
-            }
-        }
+        //    using (IDbConnection conn = Connection)
+        //    {
+        //        TimeTable timeTable = await conn.QueryFirstAsync<TimeTable>(sql);
+        //        CreateBookedRoomViewModel model = new CreateBookedRoomViewModel(_config);
+        //        model.timeTable = timeTable;
+        //        return View(model);
+        //    }
+        //}
 
         // POST: TimeTables/Edit/5
         [HttpPost]
