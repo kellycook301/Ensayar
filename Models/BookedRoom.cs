@@ -17,7 +17,7 @@ namespace RealRehearsalSpace.Models
         public Room Room { get; set; }
 
         [Required]
-        public int TimeId { get; set; }
+        public int TimeTableId { get; set; }
 
         public TimeTable TimeTable { get; set; }
 

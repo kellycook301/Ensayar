@@ -19,31 +19,26 @@ namespace RealRehearsalSpace.Models.ViewModels
         public TimeTable timeTable { get; set; }
         public Room room { get; set; }
 
-        public CreateBookedRoomViewModel(){ }
+        public CreateBookedRoomViewModel() { }
 
         public CreateBookedRoomViewModel(IConfiguration config, Room currentRoom)
         {
             room = currentRoom;
             using (IDbConnection conn = new SqlConnection(config.GetConnectionString("DefaultConnection")))
             {
-                var times = conn.Query<TimeTable>(@"
-                    SELECT TimeTableId, BookTime FROM TimeTables;
-                ").ToList();
-                var bookedRoomTimes = conn.Query<BookedRoom>($@"
-                    SELECT TimeTableId FROM BookedRooms WHERE RoomId = {room.RoomId};
-                ").ToList();
+                var times = conn.Query<TimeTable>($@"
+                    Select tt.TimeTableId, tt.BookTime FROM TimeTables tt
+                    LEFT JOIN BookedRooms br ON tt.TimeTableId = br.TimeTableId AND br.RoomId = {room.RoomId}
+                    WHERE br.BookedRoomId is NULL
+                    ORDER BY tt.TimeTableId;
 
-                foreach (BookedRoom br in bookedRoomTimes)
-                {
-                    times.Remove(br.TimeTable);
-                };
-                TimeTables = times.AsEnumerable()
+                ").ToList();
+                TimeTables = times
                 .Select(li => new SelectListItem
                 {
                     Text = li.BookTime,
                     Value = li.TimeTableId.ToString()
                 }).ToList();
-                ;
             }
             TimeTables.Insert(0, new SelectListItem
             {

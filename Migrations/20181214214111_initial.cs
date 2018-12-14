@@ -51,6 +51,19 @@ namespace RealRehearsalSpace.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Rooms",
+                columns: table => new
+                {
+                    RoomId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rooms", x => x.RoomId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TimeTables",
                 columns: table => new
                 {
@@ -170,34 +183,13 @@ namespace RealRehearsalSpace.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Rooms",
-                columns: table => new
-                {
-                    RoomId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: false),
-                    TimeTableId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rooms", x => x.RoomId);
-                    table.ForeignKey(
-                        name: "FK_Rooms_TimeTables_TimeTableId",
-                        column: x => x.TimeTableId,
-                        principalTable: "TimeTables",
-                        principalColumn: "TimeTableId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "BookedRooms",
                 columns: table => new
                 {
                     BookedRoomId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     RoomId = table.Column<int>(nullable: false),
-                    TimeId = table.Column<int>(nullable: false),
-                    TimeTableId = table.Column<int>(nullable: true),
+                    TimeTableId = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: false),
                     BookDate = table.Column<string>(nullable: false)
                 },
@@ -215,7 +207,7 @@ namespace RealRehearsalSpace.Migrations
                         column: x => x.TimeTableId,
                         principalTable: "TimeTables",
                         principalColumn: "TimeTableId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_BookedRooms_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -277,11 +269,6 @@ namespace RealRehearsalSpace.Migrations
                 name: "IX_BookedRooms_UserId",
                 table: "BookedRooms",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rooms_TimeTableId",
-                table: "Rooms",
-                column: "TimeTableId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -311,10 +298,10 @@ namespace RealRehearsalSpace.Migrations
                 name: "Rooms");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "TimeTables");
 
             migrationBuilder.DropTable(
-                name: "TimeTables");
+                name: "AspNetUsers");
         }
     }
 }

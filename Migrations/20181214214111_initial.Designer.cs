@@ -10,7 +10,7 @@ using RealRehearsalSpace.Data;
 namespace RealRehearsalSpace.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181213151053_initial")]
+    [Migration("20181214214111_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -202,9 +202,7 @@ namespace RealRehearsalSpace.Migrations
 
                     b.Property<int>("RoomId");
 
-                    b.Property<int>("TimeId");
-
-                    b.Property<int?>("TimeTableId");
+                    b.Property<int>("TimeTableId");
 
                     b.Property<string>("UserId")
                         .IsRequired();
@@ -229,11 +227,7 @@ namespace RealRehearsalSpace.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<int>("TimeTableId");
-
                     b.HasKey("RoomId");
-
-                    b.HasIndex("TimeTableId");
 
                     b.ToTable("Rooms");
                 });
@@ -321,19 +315,12 @@ namespace RealRehearsalSpace.Migrations
 
                     b.HasOne("RealRehearsalSpace.Models.TimeTable", "TimeTable")
                         .WithMany("BookedRooms")
-                        .HasForeignKey("TimeTableId");
+                        .HasForeignKey("TimeTableId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("RealRehearsalSpace.Models.ApplicationUser", "User")
                         .WithMany("BookedRooms")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("RealRehearsalSpace.Models.Room", b =>
-                {
-                    b.HasOne("RealRehearsalSpace.Models.TimeTable", "TimeTable")
-                        .WithMany()
-                        .HasForeignKey("TimeTableId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

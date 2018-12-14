@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +21,12 @@ namespace RealRehearsalSpace.Controllers
     public class RoomsController : Controller
     {
         private readonly ApplicationDbContext _context;
+
+        /* Represents user data */
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        /* Retrieves the data for the current user from _userManager */
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         private readonly IConfiguration _config;
 
@@ -42,7 +50,7 @@ namespace RealRehearsalSpace.Controllers
             return View(await _context.Rooms.ToListAsync());
         }
 
-        // GET: TimeTables/Details/5
+        // GET: Rooms/Details/5
         public async Task<ActionResult> Details(int id)
         {
             string roomsql = $@"
@@ -61,7 +69,22 @@ namespace RealRehearsalSpace.Controllers
             }
         }
 
-        // GET: Rooms/Create
+        [Authorize]
+        public async Task<IActionResult> AddToBookedRooms([FromRoute] int id)
+        {
+            Room roomToAdd = await _context.Rooms.SingleOrDefaultAsync(r => r.RoomId == id);
+
+            //var user = await GetCurrentUserAsync();
+
+            BookedRoom currentBookedRoom = new BookedRoom();
+            currentBookedRoom.RoomId = id;
+            currentBookedRoom.TimeTableId = id;
+            _context.Add(currentBookedRoom);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "BookedRooms");
+        }
+
+        //GET: Rooms/Create
         public IActionResult Create()
         {
             return View();
