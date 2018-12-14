@@ -74,11 +74,13 @@ namespace RealRehearsalSpace.Controllers
         {
             Room roomToAdd = await _context.Rooms.SingleOrDefaultAsync(r => r.RoomId == id);
 
-            //var user = await GetCurrentUserAsync();
+            var user = await GetCurrentUserAsync();
 
             BookedRoom currentBookedRoom = new BookedRoom();
-            currentBookedRoom.RoomId = id;
+            currentBookedRoom.RoomId = roomToAdd.RoomId;
+            //How Do I get selected timetableid from dropdown?
             currentBookedRoom.TimeTableId = id;
+            currentBookedRoom.UserId = user.Id;
             _context.Add(currentBookedRoom);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "BookedRooms");

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using RealRehearsalSpace.Data;
 using RealRehearsalSpace.Models;
 
@@ -14,15 +16,25 @@ namespace RealRehearsalSpace.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public BookedRoomsController(ApplicationDbContext context)
+        /* Represents user data */
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        /* Retrieves the data for the current user from _userManager */
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
+        private readonly IConfiguration _config;
+
+        public BookedRoomsController(ApplicationDbContext context, IConfiguration config)
         {
             _context = context;
+            _config = config;
         }
 
         // GET: BookedRooms
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.BookedRooms.Include(b => b.Room).Include(b => b.User);
+            var user = await GetCurrentUserAsync();
+            var applicationDbContext = _context.BookedRooms.Include(b => b.Room).Where(u => u.UserId == user.Id);
             return View(await applicationDbContext.ToListAsync());
         }
 
