@@ -67,24 +67,7 @@ namespace RealRehearsalSpace.Controllers
                 CreateBookedRoomViewModel model = new CreateBookedRoomViewModel(_config, room);
                 return View(model);
             }
-        }
-
-        [Authorize]
-        public async Task<IActionResult> AddToBookedRooms([FromRoute] int id)
-        {
-            Room roomToAdd = await _context.Rooms.SingleOrDefaultAsync(r => r.RoomId == id);
-
-            var user = await GetCurrentUserAsync();
-
-            BookedRoom currentBookedRoom = new BookedRoom();
-            currentBookedRoom.RoomId = roomToAdd.RoomId;
-            //How Do I get selected timetableid from dropdown?
-            currentBookedRoom.TimeTableId = id;
-            currentBookedRoom.UserId = user.Id;
-            _context.Add(currentBookedRoom);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "BookedRooms");
-        }
+        }  
 
         //GET: Rooms/Create
         public IActionResult Create()

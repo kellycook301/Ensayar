@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,12 +21,16 @@ namespace RealRehearsalSpace.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
 
         /* Retrieves the data for the current user from _userManager */
-        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+        private Task<ApplicationUser> GetCurrentUserAsync()
+        {
+            return _userManager.GetUserAsync(HttpContext.User);
+        }
 
         private readonly IConfiguration _config;
 
-        public BookedRoomsController(ApplicationDbContext context, IConfiguration config)
+        public BookedRoomsController(ApplicationDbContext context, IConfiguration config, UserManager<ApplicationUser> userManager)
         {
+            _userManager = userManager;
             _context = context;
             _config = config;
         }
@@ -36,6 +41,24 @@ namespace RealRehearsalSpace.Controllers
             var user = await GetCurrentUserAsync();
             var applicationDbContext = _context.BookedRooms.Include(b => b.Room).Where(u => u.UserId == user.Id);
             return View(await applicationDbContext.ToListAsync());
+        }
+
+        [Authorize]
+        public async Task<IActionResult> AddToBookedRooms(int id, TimeTable timeTable)
+        {
+            Room roomToAdd = await _context.Rooms.SingleOrDefaultAsync(r => r.RoomId == id);
+
+            var user = await GetCurrentUserAsync();
+
+            BookedRoom currentBookedRoom = new BookedRoom();
+            currentBookedRoom.RoomId = roomToAdd.RoomId;
+            currentBookedRoom.BookDate = DateTime.Today.ToString();
+            //How Do I get selected timetableid from dropdown?
+            currentBookedRoom.TimeTableId = timeTable.TimeTableId;
+            currentBookedRoom.UserId = user.Id;
+            _context.Add(currentBookedRoom);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "BookedRooms");
         }
 
         // GET: BookedRooms/Details/5
