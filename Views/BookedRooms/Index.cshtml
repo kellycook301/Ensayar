@@ -4,11 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Your Booked Rooms</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -17,9 +14,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TimeTableId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.BookDate)
@@ -34,10 +28,7 @@
                 @Html.DisplayFor(modelItem => item.Room.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TimeTableId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
+                @Html.DisplayFor(modelItem => item.TimeTable.BookTime)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BookDate)

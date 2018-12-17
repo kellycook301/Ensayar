@@ -39,7 +39,7 @@ namespace RealRehearsalSpace.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await GetCurrentUserAsync();
-            var applicationDbContext = _context.BookedRooms.Include(b => b.Room).Where(u => u.UserId == user.Id);
+            var applicationDbContext = _context.BookedRooms.Include(b => b.Room).Include(b => b.TimeTable).Where(u => u.UserId == user.Id);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -53,9 +53,8 @@ namespace RealRehearsalSpace.Controllers
             BookedRoom currentBookedRoom = new BookedRoom();
             currentBookedRoom.RoomId = roomToAdd.RoomId;
             currentBookedRoom.BookDate = DateTime.Today.ToString();
-            //How Do I get selected timetableid from dropdown?
             currentBookedRoom.TimeTableId = timeTable.TimeTableId;
-            currentBookedRoom.UserId = user.Id;
+            currentBookedRoom.UserId = user.Id.ToString();
             _context.Add(currentBookedRoom);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "BookedRooms");
@@ -71,6 +70,7 @@ namespace RealRehearsalSpace.Controllers
 
             var bookedRoom = await _context.BookedRooms
                 .Include(b => b.Room)
+                .Include(b => b.TimeTable)
                 .Include(b => b.User)
                 .FirstOrDefaultAsync(m => m.BookedRoomId == id);
             if (bookedRoom == null)
@@ -85,6 +85,7 @@ namespace RealRehearsalSpace.Controllers
         public IActionResult Create()
         {
             ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "Name");
+            ViewData["TimeTableId"] = new SelectList(_context.TimeTables, "TimeTableId", "BookDate");
             ViewData["UserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id");
             return View();
         }
@@ -94,7 +95,7 @@ namespace RealRehearsalSpace.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookedRoomId,RoomId,TimeId,UserId,BookDate")] BookedRoom bookedRoom)
+        public async Task<IActionResult> Create([Bind("BookedRoomId,RoomId,TimeTableId,UserId,BookDate")] BookedRoom bookedRoom)
         {
             if (ModelState.IsValid)
             {
@@ -103,6 +104,7 @@ namespace RealRehearsalSpace.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "Name", bookedRoom.RoomId);
+            ViewData["TimeTableId"] = new SelectList(_context.TimeTables, "TimeTableId", "BookDate", bookedRoom.TimeTableId);
             ViewData["UserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id", bookedRoom.UserId);
             return View(bookedRoom);
         }
@@ -121,6 +123,7 @@ namespace RealRehearsalSpace.Controllers
                 return NotFound();
             }
             ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "Name", bookedRoom.RoomId);
+            ViewData["TimeTableId"] = new SelectList(_context.TimeTables, "TimeTableId", "BookTime", bookedRoom.TimeTableId);
             ViewData["UserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id", bookedRoom.UserId);
             return View(bookedRoom);
         }
@@ -130,19 +133,26 @@ namespace RealRehearsalSpace.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookedRoomId,RoomId,TimeId,UserId,BookDate")] BookedRoom bookedRoom)
+        public async Task<IActionResult> Edit(int id, [Bind("BookedRoomId,RoomId,TimeTableId,UserId,BookTime")] BookedRoom bookedRoom)
         {
             if (id != bookedRoom.BookedRoomId)
             {
                 return NotFound();
             }
 
+            ModelState.Remove("User");
+            ModelState.Remove("UserId");
+            ModelState.Remove("BookDate");
+
             if (ModelState.IsValid)
             {
                 try
                 {
+                    bookedRoom.User = await GetCurrentUserAsync();
+                    bookedRoom.BookDate = DateTime.Now.ToString();
                     _context.Update(bookedRoom);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -154,10 +164,10 @@ namespace RealRehearsalSpace.Controllers
                     {
                         throw;
                     }
-                }
-                return RedirectToAction(nameof(Index));
+                } 
             }
             ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "Name", bookedRoom.RoomId);
+            ViewData["TimeTableId"] = new SelectList(_context.TimeTables, "TimeTableId", "BookTime", bookedRoom.TimeTableId);
             ViewData["UserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id", bookedRoom.UserId);
             return View(bookedRoom);
         }
@@ -172,6 +182,7 @@ namespace RealRehearsalSpace.Controllers
 
             var bookedRoom = await _context.BookedRooms
                 .Include(b => b.Room)
+                .Include(b => b.TimeTable)
                 .Include(b => b.User)
                 .FirstOrDefaultAsync(m => m.BookedRoomId == id);
             if (bookedRoom == null)
