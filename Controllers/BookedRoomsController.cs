@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using RealRehearsalSpace.Data;
 using RealRehearsalSpace.Models;
+using RealRehearsalSpace.Models.ViewModels;
 
 namespace RealRehearsalSpace.Controllers
 {
@@ -35,29 +39,20 @@ namespace RealRehearsalSpace.Controllers
             _config = config;
         }
 
+        public IDbConnection Connection
+        {
+            get
+            {
+                return new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            }
+        }
+
         // GET: BookedRooms
         public async Task<IActionResult> Index()
         {
             var user = await GetCurrentUserAsync();
             var applicationDbContext = _context.BookedRooms.Include(b => b.Room).Include(b => b.TimeTable).Where(u => u.UserId == user.Id);
             return View(await applicationDbContext.ToListAsync());
-        }
-
-        [Authorize]
-        public async Task<IActionResult> AddToBookedRooms(int id, TimeTable timeTable)
-        {
-            Room roomToAdd = await _context.Rooms.SingleOrDefaultAsync(r => r.RoomId == id);
-
-            var user = await GetCurrentUserAsync();
-
-            BookedRoom currentBookedRoom = new BookedRoom();
-            currentBookedRoom.RoomId = roomToAdd.RoomId;
-            currentBookedRoom.BookDate = DateTime.Today.ToString();
-            currentBookedRoom.TimeTableId = timeTable.TimeTableId;
-            currentBookedRoom.UserId = user.Id.ToString();
-            _context.Add(currentBookedRoom);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "BookedRooms");
         }
 
         // GET: BookedRooms/Details/5
@@ -109,68 +104,82 @@ namespace RealRehearsalSpace.Controllers
             return View(bookedRoom);
         }
 
-        // GET: BookedRooms/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        [Authorize]
+        //Custom Create method called AddToBookedRooms
+        public async Task<IActionResult> AddToBookedRooms(int id, TimeTable timeTable)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            Room roomToAdd = await _context.Rooms.SingleOrDefaultAsync(r => r.RoomId == id);
 
-            var bookedRoom = await _context.BookedRooms.FindAsync(id);
-            if (bookedRoom == null)
-            {
-                return NotFound();
-            }
-            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "Name", bookedRoom.RoomId);
-            ViewData["TimeTableId"] = new SelectList(_context.TimeTables, "TimeTableId", "BookTime", bookedRoom.TimeTableId);
-            ViewData["UserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id", bookedRoom.UserId);
-            return View(bookedRoom);
+            var user = await GetCurrentUserAsync();
+
+            BookedRoom currentBookedRoom = new BookedRoom();
+            currentBookedRoom.RoomId = roomToAdd.RoomId;
+            currentBookedRoom.BookDate = DateTime.Today.ToString();
+            currentBookedRoom.TimeTableId = timeTable.TimeTableId;
+            currentBookedRoom.UserId = user.Id.ToString();
+            _context.Add(currentBookedRoom);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "BookedRooms");
         }
 
         // POST: BookedRooms/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // Custom Edit POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookedRoomId,RoomId,TimeTableId,UserId,BookTime")] BookedRoom bookedRoom)
+        public async Task<IActionResult> Edit(int id, EditBookedRoomViewModel viewModel)
         {
-            if (id != bookedRoom.BookedRoomId)
-            {
-                return NotFound();
-            }
 
-            ModelState.Remove("User");
+            ModelState.Remove("bookedRoom.User");
+            ModelState.Remove("bookedRoom.UserId");
+            ModelState.Remove("bookedRoom.BookDate");
+            ModelState.Remove("timeTable.BookTime");
+
             ModelState.Remove("UserId");
             ModelState.Remove("BookDate");
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    bookedRoom.User = await GetCurrentUserAsync();
-                    bookedRoom.BookDate = DateTime.Now.ToString();
-                    _context.Update(bookedRoom);
+                var user = await GetCurrentUserAsync();
+                BookedRoom reassignedBookedRoom = await _context.BookedRooms
+                .FirstOrDefaultAsync(m => m.BookedRoomId == id);
+                reassignedBookedRoom.TimeTableId = viewModel.timeTable.TimeTableId;
+                reassignedBookedRoom.BookedRoomId = id;
+                reassignedBookedRoom.UserId = user.Id;
+                _context.Update(reassignedBookedRoom);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BookedRoomExists(bookedRoom.BookedRoomId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                } 
             }
-            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "Name", bookedRoom.RoomId);
-            ViewData["TimeTableId"] = new SelectList(_context.TimeTables, "TimeTableId", "BookTime", bookedRoom.TimeTableId);
-            ViewData["UserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id", bookedRoom.UserId);
-            return View(bookedRoom);
+            return RedirectToAction(nameof(Index));
         }
+
+        // GET: BookedRooms/Edit/5
+        // Semi-Custom Edit GET
+        public async Task<IActionResult> Edit(int? id)
+        {
+
+            string roomsql = $@"
+            SELECT
+                br.BookedRoomId,
+                br.RoomId,
+				br.TimeTableId,
+				br.UserId,
+				br.BookDate
+            FROM BookedRooms br
+            WHERE br.BookedRoomId = {id}
+            ";
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            using (IDbConnection conn = Connection)
+            {
+                BookedRoom bookedRoom = await conn.QueryFirstAsync<BookedRoom>(roomsql);
+                EditBookedRoomViewModel model = new EditBookedRoomViewModel(_config, bookedRoom);
+                return View(model);
+            }
+        }
+
 
         // GET: BookedRooms/Delete/5
         public async Task<IActionResult> Delete(int? id)
