@@ -114,7 +114,7 @@ namespace RealRehearsalSpace.Controllers
 
             BookedRoom currentBookedRoom = new BookedRoom();
             currentBookedRoom.RoomId = roomToAdd.RoomId;
-            currentBookedRoom.BookDate = DateTime.Today.ToString();
+            currentBookedRoom.BookDate = DateTime.Today.ToShortDateString();
             currentBookedRoom.TimeTableId = timeTable.TimeTableId;
             currentBookedRoom.UserId = user.Id.ToString();
             _context.Add(currentBookedRoom);

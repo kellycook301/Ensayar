@@ -18,9 +18,5 @@ namespace RealRehearsalSpace.Data
         public DbSet<Room> Rooms { get; set; }
         public DbSet<TimeTable> TimeTables { get; set; }
 
-        internal void Add(object thisBookedRoom)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

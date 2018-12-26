@@ -40,11 +40,6 @@ namespace RealRehearsalSpace.Models.ViewModels
                     Value = li.TimeTableId.ToString()
                 }).ToList();
             }
-            TimeTables.Insert(0, new SelectListItem
-            {
-                Text = "Choose A Time To Book...",
-                Value = "0"
-            });
         }
     }
 }
