@@ -4,10 +4,9 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h2>Room Details</h2>
 
 <div>
-    <h4>BookedRoom</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -20,13 +19,7 @@
             @Html.DisplayNameFor(model => model.TimeTableId)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.TimeTableId)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.User.Id)
+            @Html.DisplayFor(model => model.TimeTable.BookTime)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.BookDate)
@@ -38,5 +31,5 @@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.BookedRoomId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back To Your Booked Times</a>
 </div>

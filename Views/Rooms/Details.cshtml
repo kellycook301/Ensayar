@@ -8,13 +8,14 @@
 <p>(Times That Are Already Booked Will Not Appear)</p>
 <div>
     <form asp-controller="BookedRooms" asp-action="AddToBookedRooms" asp-route-id="@Model.room.RoomId">
+        
         <div class="form-group">
-            
-            <select asp-for="timeTable.TimeTableId" asp-items="@Model.TimeTables">
+            <select asp-for="timeTable.TimeTableId" class="form-control" asp-items="@Model.TimeTables">
                 <option disabled selected> --- SELECT ---</option>
             </select>
             <span asp-validation-for="TimeTables" class="text-danger"></span>
         </div>
+        
         <div class="form-group">
             <input type="submit" value="Book Room!" class="btn btn-default" />
         </div>
