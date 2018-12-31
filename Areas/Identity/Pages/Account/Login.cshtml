@@ -1,7 +1,7 @@
 @page
 @model LoginModel
 
-<img src="~/images/MinimizedLogo4.png" class="logo" alt="Sample Photo" />
+<img src="~/images/whoknows.png" class="logo" alt="Sample Photo" />
 
 <h2>@ViewData["Title"]</h2>
 
@@ -9,12 +9,10 @@
     <div class="col-md-4">
         <section>
             <form method="post">
-                <h4 class="bookARoom">Log In To Book A Room!</h4>
-                <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group emailBox">
                     <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
+                    <input asp-for="Input.Email" class="form-control emailName" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group passwordBox">
@@ -22,7 +20,7 @@
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group rememberMe">
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe">
                             <input asp-for="Input.RememberMe" />
@@ -33,7 +31,7 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">Log In</button>
                 </div>
-                <div class="form-group">
+                <div class="form-group forgotBox">
                     <p>
                         <a asp-page="./ForgotPassword">Forgot Your Password?</a>
                     </p>
