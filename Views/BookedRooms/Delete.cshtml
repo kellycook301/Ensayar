@@ -4,33 +4,30 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are You Sure You Want To Cancel?</h3>
 <div>
-    <h4>BookedRoom</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Room)
+            @Html.DisplayNameFor(model => model.Room):
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Room.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.TimeTableId)
+            @Html.DisplayNameFor(model => model.TimeTableId):
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.TimeTableId)
+            @Html.DisplayFor(model => model.TimeTable.BookTime)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.User)
+            @Html.DisplayNameFor(model => model.User):
         </dt>
         <dd>
             @Html.DisplayFor(model => model.User.UserName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.BookDate)
+            @Html.DisplayNameFor(model => model.BookDate):
         </dt>
         <dd>
             @Html.DisplayFor(model => model.BookDate)

@@ -3,7 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: #99e265;
+    background-color: #8ccce4;
 }
 
 /* Wrapping element */
@@ -20,7 +20,7 @@ body {
 }
 
 .navbar-default {
-    background-color: #99e265;
+    background-color: #8ccce4;
     border-color: #74828f;
 }
 
@@ -37,14 +37,6 @@ body {
     }
 }
 
-.welcome, .bookARoom, .forgotBox, .rememberMe {
-    color: white;
-}
-
-.emailName {
-    padding-bottom: 4em;
-}
-
-.aboutUs {
+.welcome, .bookARoom, .forgotBox, .rememberMe, .chooseARoom, .aboutUs, .moreAboutUs, .contactUs, .address, .support {
     color: white;
 }
