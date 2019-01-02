@@ -27,7 +27,7 @@
             @Html.DisplayNameFor(model => model.User)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.User.Id)
+            @Html.DisplayFor(model => model.User.UserName)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.BookDate)
@@ -39,7 +39,8 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="BookedRoomId" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <input type="submit" value="Delete" class="btn btn-danger btn-block" />
+        <p></p>
         <a asp-action="Index">Back to List</a>
     </form>
 </div>

@@ -37,18 +37,14 @@ body {
     }
 }
 
-.welcome, .emailBox, .passwordBox, .bookARoom, .forgotBox, .rememberMe {
+.welcome, .bookARoom, .forgotBox, .rememberMe {
     color: white;
 }
 
-.emailBox, .emailName {
-    display: inline;
+.emailName {
+    padding-bottom: 4em;
 }
 
-
-
-@media screen and (max-width: 812px) {
-    .logo {
-        
-    }
+.aboutUs {
+    color: white;
 }
