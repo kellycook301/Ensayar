@@ -7,27 +7,20 @@ body {
 }
 
 /* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+/* Set some basic padding to keep content from hitting the edges 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
+*/
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+/* NavBar */
+.navbar {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
 }
 
-.navbar-default {
-    background-color: #8ccce4;
-    border-color: #74828f;
-}
-
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
@@ -37,6 +30,7 @@ body {
     }
 }
 
-.welcome, .bookARoom, .forgotBox, .rememberMe, .chooseARoom, .aboutUs, .moreAboutUs, .contactUs, .address, .support {
+/* Text Color */
+.welcome, .bookARoom, .forgotBox, .rememberMe, .chooseARoom, .aboutUs, .moreAboutUs, .contactUs, .address, .support, .register {
     color: white;
 }

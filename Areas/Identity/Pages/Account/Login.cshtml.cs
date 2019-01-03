@@ -47,7 +47,7 @@ namespace RealRehearsalSpace.Areas.Identity.Pages.Account
             [Display(Prompt = "Password")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember Me?")]
+            [Display(Name = "Stayed Signed In")]
             public bool RememberMe { get; set; }
         }
 
