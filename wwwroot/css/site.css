@@ -35,9 +35,20 @@ body {
     bottom: 0;
 }
 
+.schoolBand {
+    width: 100%;
+    height: 110%;
+}
+
 hr {
     width: 100%;
     right: -10%;
+}
+
+.handPointDown {
+    width: 15%;
+    height: 15%;
+    margin: 0 auto;
 }
 
 .logo {
@@ -45,10 +56,14 @@ hr {
     font-size: 2em;
 }
 
-.welcome, .chooseARoom {
+.welcome, .chooseARoom, .pickBelow {
     font-family: 'Hind Siliguri', sans-serif;
     font-weight: bold;
     text-align: center;
+}
+
+.pickBelow {
+    padding-bottom: 1.2em;
 }
 
 /* Hide/rearrange for smaller screens */
