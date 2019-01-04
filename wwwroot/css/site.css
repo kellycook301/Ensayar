@@ -21,13 +21,16 @@ body {
     width: 100%;
 }
 
-.lowerNavbar {
-    overflow: hidden;
+/* Footer (secondary navbar) */
+
+.footerContainer {
+    padding: 0.5em;
+    width: 125%;
+    display: inline-block;
+    font-size: 2.75em;
     position: fixed;
-    width: 100%;
     bottom: 0;
 }
-
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
@@ -37,7 +40,7 @@ body {
     }
 }
 
-/* Text Color */
-.welcome, .bookARoom, .forgotBox, .rememberMe, .chooseARoom, .aboutUs, .moreAboutUs, .contactUs, .address, .support, .register {
+/* ALLLLL WHITE Text Color */
+.welcome, .bookARoom, .forgotBox, .rememberMe, .chooseARoom, .aboutUs, .moreAboutUs, .contactUs, .address, .support, .register, .yourBookedRooms, .theseBookedRooms, .chooseYourRoom, .chooseYourTime, .takenTimes {
     color: white;
 }

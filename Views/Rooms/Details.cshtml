@@ -4,8 +4,8 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Choose A Time To Book</h2>
-<p>(Times That Are Already Booked Will Not Appear)</p>
+<h2 class="chooseYourTime">Choose A Time To Book</h2>
+<p class="takenTimes">(Times That Are Already Booked Will Not Appear)</p>
 <div>
     <form asp-controller="BookedRooms" asp-action="AddToBookedRooms" asp-route-id="@Model.room.RoomId">
         

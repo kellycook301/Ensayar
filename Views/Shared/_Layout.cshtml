@@ -12,8 +12,8 @@
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-         asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-         asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
@@ -69,14 +69,12 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
-</body>
-<nav class="lowerNavbar">
-    <div class="nav-wrapper">
-        <ul class="row">
-            <li class="col s3"><a class="waves-effect" asp-controller="BookedRooms" asp-action="Index"><i class="material-icons fas fa-home"></i></a>
-            <li class="col s3"><a class="waves-effect" asp-controller="Rooms" asp-action="Index"><i class="material-icons fas fa-calendar-plus"></i></a>
-            <li class="col s3"><a class="waves-effect" asp-area="Identity" asp-page="/Account/Manage/Index"><i class="material-icons fas fa-user"></i></a>
-        </ul>
+    <div class="footerContainer">
+            <div class="row">
+                <div class="col-xs-4"><a asp-controller="BookedRooms" asp-action="Index"><i class="material-icons fas fa-home"></i></a></div>
+                <div class="col-xs-4"><a asp-controller="Rooms" asp-action="Index"><i class="material-icons fas fa-calendar-plus"></i></a></div>
+                <div class="col-xs-4"><a asp-area="Identity" asp-page="/Account/Manage/Index"><i class="material-icons fas fa-user"></i></a></div>
+            </div>
     </div>
-</nav>
+</body>
 </html>
