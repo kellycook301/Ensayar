@@ -18,6 +18,7 @@ using RealRehearsalSpace.Models.ViewModels;
 
 namespace RealRehearsalSpace.Controllers
 {
+    [Authorize]
     public class RoomsController : Controller
     {
         private readonly ApplicationDbContext _context;
