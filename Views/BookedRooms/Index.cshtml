@@ -23,7 +23,8 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Room.Name)
@@ -35,9 +36,9 @@
                 @Html.DisplayFor(modelItem => item.BookDate)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.BookedRoomId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BookedRoomId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BookedRoomId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.BookedRoomId"><i class="fas fa-edit"></i></a>
+                <a asp-action="Details" asp-route-id="@item.BookedRoomId"><i class="fas fa-question-circle"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.BookedRoomId"><i class="fas fa-trash-alt"></i></a>
             </td>
         </tr>
 }
