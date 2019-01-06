@@ -25,10 +25,9 @@
         </form>
     </div>
 </div>
+<hr />
 
-<div>
-    <a asp-action="Index">Back To Your Booked Times</a>
-</div>
+<div class="col-xs-2"><a asp-action="Index"><i class="fas fa-arrow-alt-circle-left fa-2x backButton"></i></a></div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
