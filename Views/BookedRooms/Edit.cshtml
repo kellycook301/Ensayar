@@ -4,8 +4,11 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit The Time You Have Booked</h2>
-
+<div class="row">
+    <div class="col-md-4">
+        <h2 class="editYourTime">Edit The Time You Have Booked</h2>
+    </div>
+</div>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -17,7 +20,7 @@
                 <span asp-validation-for="timeTable.TimeTableId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save Changes" class="btn btn-danger btn-block" />
             </div>
         </form>
     </div>

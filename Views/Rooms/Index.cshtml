@@ -5,20 +5,10 @@
 }
 
 <h2 class="chooseYourRoom">Select A Room To Book!</h2>
-
-<table class="table">
-    <tbody>
-        @foreach (var item in Model)
-        {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            <a asp-action="Details" asp-route-id="@item.RoomId">Book This Room</a>
-        </td>
-    </tr>
-    
+@foreach (var item in Model)
+    {
+    <div class="panel panel-default">
+    <div class="panel-heading roomHeader"><a asp-action="Details" asp-route-id="@item.RoomId">@Html.DisplayFor(modelItem => item.Name)</a></div>
+    </div>
 }
-    </tbody>
-</table>
+

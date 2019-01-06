@@ -78,13 +78,13 @@ hr {
 
 .welcome, .chooseARoom, .pickBelow, .chooseYourRoom,
 .yourBookedRooms, .theseBookedRooms, .chooseYourTime,
-.takenTimes, .rUSure, .aboutUs, .contactUs {
+.takenTimes, .rUSure, .aboutUs, .contactUs, .roomDeets, .editYourTime {
     font-family: 'Hind Siliguri', sans-serif;
     font-weight: bold;
     text-align: center;
 }
 
-.forgot, .register, .back2List, .moreAboutUs {
+.forgot, .register, .back2List, .moreAboutUs, .back2ListOfBookedRooms {
     font-family: 'Hind Siliguri', sans-serif;
 }
 
@@ -107,12 +107,19 @@ hr {
 }
 
 .welcome, .chooseYourRoom, .yourBookedRooms,
-.chooseYourTime, .rUSure, .aboutUs, .contactUs {
+.chooseYourTime, .rUSure, .aboutUs, .contactUs, .roomDeets, .editYourTime {
     padding-top: 0.5em;
 }
 
 .chooseARoom {
     padding-top: 1em;
+}
+
+.roomHeader {
+    font-family: 'Hind Siliguri', sans-serif;
+    font-weight: bold;
+    font-size: 1.8em;
+    text-align: center;
 }
 
 .pickBelow {

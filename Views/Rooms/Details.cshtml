@@ -8,17 +8,18 @@
 <h5 class="takenTimes">(Times That Are Already Booked Will Not Appear)</h5>
 <div>
     <form asp-controller="BookedRooms" asp-action="AddToBookedRooms" asp-route-id="@Model.room.RoomId">
-        
+
         <div class="form-group">
             <select asp-for="timeTable.TimeTableId" class="form-control" asp-items="@Model.TimeTables"></select>
             <span asp-validation-for="TimeTables" class="text-danger"></span>
         </div>
-        
+
         <div class="form-group">
             <input type="submit" value="Book Room!" class="btn btn-danger btn-block" />
         </div>
     </form>
 </div>
-<div>
-    <a asp-action="Index">Back To List Of Rooms</a>
+
+<div class="listContainer">
+    <div class="col-xs-6 back2ListOfBookedRooms"><a asp-action="Index">Back To List Of Rooms</a></div>
 </div>

@@ -4,25 +4,29 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Room Details</h2>
+<div class="row">
+    <div class="col-md-4">
+        <h2 class="roomDeets">Room Details</h2>
+    </div>
+</div>
 
 <div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Room)
+            @Html.DisplayNameFor(model => model.Room) :
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Room.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.TimeTableId)
+            @Html.DisplayNameFor(model => model.TimeTableId) :
         </dt>
         <dd>
             @Html.DisplayFor(model => model.TimeTable.BookTime)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.BookDate)
+            @Html.DisplayNameFor(model => model.BookDate) :
         </dt>
         <dd>
             @Html.DisplayFor(model => model.BookDate)
