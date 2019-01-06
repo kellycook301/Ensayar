@@ -50,6 +50,14 @@ hr {
     text-align: center;
 }
 
+.rockstarContainer {
+    text-align: center;
+}
+
+.rockingOut {
+    display: inline-block;
+}
+
 .handPointDown {
     width: 15%;
     height: 15%;
@@ -104,12 +112,12 @@ hr {
 }
 
 .chooseARoom {
-    padding-top: 3em;
+    padding-top: 1em;
 }
 
 .pickBelow {
-    padding-top: 3em;
-    padding-bottom: 3em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 /* Hide/rearrange for smaller screens */
