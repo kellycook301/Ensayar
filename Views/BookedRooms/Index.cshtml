@@ -15,11 +15,11 @@
         <div class="timeBooked">Time: @Html.DisplayFor(modelItem => item.TimeTable.BookTime)</div>
         <p></p>
         <div class="dayBooked">Day Booked: @Html.DisplayFor(modelItem => item.BookDate)</div>
-        <p></p>
-        <a asp-action="Edit" asp-route-id="@item.BookedRoomId"><i class="fas fa-edit"></i></a>
-        <a asp-action="Details" asp-route-id="@item.BookedRoomId"><i class="fas fa-question-circle"></i></a>
-        <a asp-action="Delete" asp-route-id="@item.BookedRoomId"><i class="fas fa-trash-alt"></i></a>
-    </div>
+        <hr />
+        <div class="col-xs-2"><a asp-action="Edit" asp-route-id="@item.BookedRoomId"><i class="fas fa-edit fa-2x" style="color:#7eb2dd"></i></a></div>
+        <div class="col-xs-2"><a asp-action="Details" asp-route-id="@item.BookedRoomId"><i class="fas fa-question-circle fa-2x" style="color:#445e93"></i></a></div>
+        <div class="col-xs-2"><a asp-action="Delete" asp-route-id="@item.BookedRoomId"><i class="fas fa-trash-alt fa-2x" style="color:#db3545"></i></a></div>
+        </div>
 </div>
 
     
