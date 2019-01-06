@@ -57,7 +57,7 @@ hr {
 
 .welcome, .chooseARoom, .pickBelow, .chooseYourRoom,
 .yourBookedRooms, .theseBookedRooms, .chooseYourTime,
-.takenTimes, .rUSure, .aboutUs {
+.takenTimes, .rUSure, .aboutUs, .contactUs {
     font-family: 'Hind Siliguri', sans-serif;
     font-weight: bold;
     text-align: center;
@@ -67,11 +67,11 @@ hr {
     font-family: 'Hind Siliguri', sans-serif;
 }
 
-.back2List {
+.back2List, .highVolume {
     padding-top: 1em;
 }
 
-.chooseARoom, .chooseYourRoom {
+.chooseARoom, .chooseYourRoom, .contactUs {
     padding-bottom: 1em;
 }
 
@@ -79,7 +79,8 @@ hr {
     padding-left: 2em;
 }
 
-.welcome, .chooseYourRoom, .yourBookedRooms, .chooseYourTime, .rUSure, .aboutUs {
+.welcome, .chooseYourRoom, .yourBookedRooms,
+.chooseYourTime, .rUSure, .aboutUs, .contactUs {
     padding-top: 0.5em;
 }
 
