@@ -74,9 +74,9 @@
     @RenderSection("Scripts", required: false)
     <div class="footerContainer">
         <div class="row">
-            <div style="margin-left:-8px;margin-right:-8px"><hr style="color:Black;background-color:Black;width:100%;" /></div>
+            @*<div style="margin-left:-8px;margin-right:-8px;"><hr class="footerHR" style="color:Black;background-color:Black;width:100%;" /></div>*@
             <div class="col-xs-4"><a asp-controller="Home" asp-action="Index"><i class="material-icons fas fa-home" style="color:#db3545"></i></a></div>
-            <div class="col-xs-4"><a asp-controller="Rooms" asp-action="Index"><i class="material-icons fas fa-calendar-plus" style="color:#db3545"></i></a></div>
+            <div class="col-xs-4"><a asp-controller="Rooms" asp-action="Index"><i class="fas fa-calendar-alt" style="color:#db3545"></i></a></div>
             <div class="col-xs-4"><a asp-controller="BookedRooms" asp-action="Index"><i class="material-icons fas fa-user" style="color:#db3545"></i></a></div>
         </div>
     </div>

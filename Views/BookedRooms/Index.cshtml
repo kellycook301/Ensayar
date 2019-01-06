@@ -10,7 +10,7 @@
 @foreach (var item in Model)
 {
 <div class="panel panel-default">
-    <div class="panel-heading danger">@Html.DisplayFor(modelItem => item.Room.Name)</div>
+    <div class="panel-heading panel-header">@Html.DisplayFor(modelItem => item.Room.Name)</div>
     <div class="panel-body">
         <div class="timeBooked">Time: @Html.DisplayFor(modelItem => item.TimeTable.BookTime)</div>
         <p></p>
