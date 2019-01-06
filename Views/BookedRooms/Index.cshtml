@@ -7,40 +7,21 @@
 <h2 class="yourBookedRooms">Your Booked Rooms</h2>
 <p class="theseBookedRooms">These Are The Rooms And Times You Have Booked</p>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Room)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TimeTableId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BookDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
 @foreach (var item in Model)
 {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Room.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeTable.BookTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BookDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BookedRoomId"><i class="fas fa-edit"></i></a>
-                <a asp-action="Details" asp-route-id="@item.BookedRoomId"><i class="fas fa-question-circle"></i></a>
-                <a asp-action="Delete" asp-route-id="@item.BookedRoomId"><i class="fas fa-trash-alt"></i></a>
-            </td>
-        </tr>
+<div class="panel panel-default">
+    <div class="panel-heading danger">@Html.DisplayFor(modelItem => item.Room.Name)</div>
+    <div class="panel-body">
+        <div class="timeBooked">Time: @Html.DisplayFor(modelItem => item.TimeTable.BookTime)</div>
+        <p></p>
+        <div class="dayBooked">Day Booked: @Html.DisplayFor(modelItem => item.BookDate)</div>
+        <p></p>
+        <a asp-action="Edit" asp-route-id="@item.BookedRoomId"><i class="fas fa-edit"></i></a>
+        <a asp-action="Details" asp-route-id="@item.BookedRoomId"><i class="fas fa-question-circle"></i></a>
+        <a asp-action="Delete" asp-route-id="@item.BookedRoomId"><i class="fas fa-trash-alt"></i></a>
+    </div>
+</div>
+
+    
 }
-    </tbody>
-</table>
+
