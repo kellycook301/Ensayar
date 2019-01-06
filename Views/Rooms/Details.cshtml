@@ -4,15 +4,13 @@
     ViewData["Title"] = "Details";
 }
 
-<h2 class="chooseYourTime">Choose A Time To Book</h2>
-<p class="takenTimes">(Times That Are Already Booked Will Not Appear)</p>
+<h2 class="chooseYourTime">Choose A Time To Book!</h2>
+<h5 class="takenTimes">(Times That Are Already Booked Will Not Appear)</h5>
 <div>
     <form asp-controller="BookedRooms" asp-action="AddToBookedRooms" asp-route-id="@Model.room.RoomId">
         
         <div class="form-group">
-            <select asp-for="timeTable.TimeTableId" class="form-control" asp-items="@Model.TimeTables">
-                <option disabled selected> --- SELECT ---</option>
-            </select>
+            <select asp-for="timeTable.TimeTableId" class="form-control" asp-items="@Model.TimeTables"></select>
             <span asp-validation-for="TimeTables" class="text-danger"></span>
         </div>
         

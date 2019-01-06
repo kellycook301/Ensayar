@@ -9,12 +9,11 @@ body {
 }
 
 /* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges 
+ /*Set some basic padding to keep content from hitting the edges*/ 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
-*/
 
 /* NavBar */
 .navbar {
@@ -56,14 +55,20 @@ hr {
     font-size: 2em;
 }
 
-.welcome, .chooseARoom, .pickBelow {
+.welcome, .chooseARoom, .pickBelow, .chooseYourRoom,
+.yourBookedRooms, .theseBookedRooms, .chooseYourTime,
+.takenTimes {
     font-family: 'Hind Siliguri', sans-serif;
     font-weight: bold;
     text-align: center;
 }
 
+.welcome, .chooseYourRoom, .yourBookedRooms, .chooseYourTime {
+    padding-top: 0.5em;
+}
+
 .pickBelow {
-    padding-bottom: 1.2em;
+    padding-bottom: 1.5em;
 }
 
 /* Hide/rearrange for smaller screens */
@@ -72,9 +77,4 @@ hr {
     .carousel-caption {
         display: none;
     }
-}
-
-/* ALLLLL WHITE Text Color */
-.welcome, .bookARoom, .forgotBox, .rememberMe, .chooseARoom, .aboutUs, .moreAboutUs, .contactUs, .address, .support, .register, .yourBookedRooms, .theseBookedRooms, .chooseYourRoom, .chooseYourTime, .takenTimes {
-    color: black;
 }

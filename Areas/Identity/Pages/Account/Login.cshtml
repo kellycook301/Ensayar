@@ -1,11 +1,13 @@
 @page
 @model LoginModel
 
-@*<img src="~/images/whoknows.png" class="logo" alt="Sample Photo" />*@
+<div class="row">
+    <div class="col-md-4">
+        <h2 class="welcome">Log In To Book A Room!</h2>
+    </div>
+</div>
 
-<h2>@ViewData["Title"]</h2>
-
-
+<img src="~/images/SchoolBand.jpg" class="schoolBand" alt="Sample Photo" />
 <div class="row">
     <div class="col-md-4">
         <section>
@@ -31,13 +33,9 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-danger btn-block">Log In</button>
                 </div>
-                <div class="form-group forgotBox">
-                    <p>
-                        <a asp-page="./ForgotPassword">Forgot Your Password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register As A New User</a>
-                    </p>
+                <div class="loginContainer">
+                    <div class="col-xs-6"><a asp-page="./ForgotPassword">Forgot Your Password?</a></div>
+                    <div class="col-xs-6"><a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register As A New User</a></div>
                 </div>
             </form>
         </section>
