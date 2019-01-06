@@ -4,7 +4,7 @@
     ViewData["Title"] = "Delete";
 }
 
-<h3>Are You Sure You Want To Cancel?</h3>
+<h2 class="rUSure">Would You Like To Cancel?</h2>
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -37,7 +37,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="BookedRoomId" />
         <input type="submit" value="Cancel Session" class="btn btn-danger btn-block" />
-        <p></p>
-        <a asp-action="Index">Back to List</a>
+        <div class="back2List"><a asp-action="Index">Back To List</a></div>
     </form>
 </div>

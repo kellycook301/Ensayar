@@ -57,18 +57,34 @@ hr {
 
 .welcome, .chooseARoom, .pickBelow, .chooseYourRoom,
 .yourBookedRooms, .theseBookedRooms, .chooseYourTime,
-.takenTimes {
+.takenTimes, .rUSure, .aboutUs {
     font-family: 'Hind Siliguri', sans-serif;
     font-weight: bold;
     text-align: center;
 }
 
-.welcome, .chooseYourRoom, .yourBookedRooms, .chooseYourTime {
+.forgot, .register, .back2List, .moreAboutUs {
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.back2List {
+    padding-top: 1em;
+}
+
+.chooseARoom, .chooseYourRoom {
+    padding-bottom: 1em;
+}
+
+.register {
+    padding-left: 2em;
+}
+
+.welcome, .chooseYourRoom, .yourBookedRooms, .chooseYourTime, .rUSure, .aboutUs {
     padding-top: 0.5em;
 }
 
 .pickBelow {
-    padding-bottom: 1.5em;
+    padding-bottom: 3em;
 }
 
 /* Hide/rearrange for smaller screens */
