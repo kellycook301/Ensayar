@@ -19,22 +19,17 @@ git clone https://github.com/kellycook301/finalCapstone
 start RealRehearsalSpace.sln
 ```
 
-3. Launch the project
-```
-cd RealRehearsalSpace
-```
-
 Go ahead and create an account by clicking on "Register As A New User." Once you create an account you can go ahead and log into your page.
 Here you will see a landing page. The calendar icon will let you book a room and the account icon will take you to your list of booked room. At first the list of your booked rooms will be blank. Let's change that!
 
 ## Booking A Room
-To book your first room click on the calendar icon. You will be taken to a page where you may select a room that you want to book. After selecting a room you will be presented with a dropdown menu asking for what time you would like to book. Times taken in that room by another user will not be present. After booking the room it will be added to your list of booked rooms! You may see the list by clicking on the account button in the bottom right-hand corner.
+To book your first room click on the calendar icon. You will be taken to a page where you may select a room that you want to book. After selecting a room you will be presented with a drop down menu asking for what time you would like to book. Times taken in that room by another user will not be present. After booking the room it will be added to your list of booked rooms! You may see the list by clicking on the account button in the bottom right-hand corner.
 
 ## Editing The Time
 Let's say that you want to change the time you would like to be in the room. In the list of your booked rooms click on the "pencil" icon. You will be presented with a view where you can change and save the time. Once again, the times that are taken will not be listed.
 
 ## Deleting A Post
-Now let's say you would like to cancel that time alltogether. In the list of your booked times, click on the "trash can" icon. You will be presented with a view asking if you would like to cancel. Confirm by selecting the "cancel session" button.
+Now let's say you would like to cancel that time altogether. In the list of your booked times, click on the "trash can" icon. You will be presented with a view asking if you would like to cancel. Confirm by selecting the "cancel session" button.
 
 ## Logging Out
 Whenever you would like to log out you may click on the "hamburger" icon in the upper right-hand corner and select "logout."
@@ -67,3 +62,5 @@ Shouts out to...
 * My instructors Andy, Steve, Meg, and Kimmy! They were always willing to help when I was in a rut.
 * Coffee for keeping me ENERGIZED.
 * My my wife Jorden for believing me and always picking me up when I felt lost. My daughter Leven for being my main source of  drive and inspiration. My parents for always being there. Thank you thank you thank you!
+
+
