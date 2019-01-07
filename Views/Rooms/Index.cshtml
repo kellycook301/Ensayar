@@ -8,7 +8,7 @@
 <hr />
 @foreach (var item in Model)
 {
-    <div class="panel panel-default">
+    <div class="panel panel-default roomSelector">
         <div class="panel-heading roomHeader" style="box-shadow: 0px 2px 15px rgba(0, 0, 0, .25)";><a asp-action="Details" asp-route-id="@item.RoomId">@Html.DisplayFor(modelItem => item.Name)</a></div>
     </div>
 }
