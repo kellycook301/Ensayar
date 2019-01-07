@@ -103,8 +103,8 @@ hr {
     font-size: 1.2em;
 }
 
-.bookBlock {
-    font-size: 3em;
+.bookBlock, .logInBlock {
+    font-size: 1.3em;
 }
 
 .timeBooked, .dayBooked {
