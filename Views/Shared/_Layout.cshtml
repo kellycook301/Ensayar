@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -32,16 +36,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-            <div style="text-align:center;font-family:Pacifico, cursive;font-size:2em;padding-left:2em;color:#db3545;">ensayar</div>
+                <div style="text-align:center;font-family:Pacifico, cursive;font-size:2em;padding-left:2em;color:#db3545;">ensayar</div>
             </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
+                <partial name="_LoginPartial" />
             </div>
+        </div>
     </nav>
 
     <partial name="_CookieConsentPartial" />
@@ -72,13 +76,18 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
-    <div class="footerContainer">
-        <div class="row">
-            @*<div style="margin-left:-8px;margin-right:-8px;"><hr class="footerHR" style="color:Black;background-color:Black;width:100%;" /></div>*@
-            <div class="col-xs-4"><a asp-controller="Home" asp-action="Index"><i class="material-icons fas fa-home" style="color:#db3545"></i></a></div>
-            <div class="col-xs-4"><a asp-controller="Rooms" asp-action="Index"><i class="fas fa-calendar-alt" style="color:#db3545"></i></a></div>
-            <div class="col-xs-4"><a asp-controller="BookedRooms" asp-action="Index"><i class="material-icons fas fa-user" style="color:#db3545"></i></a></div>
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="footerContainer">
+            <div class="row">
+                @*<div style="margin-left:-8px;margin-right:-8px;"><hr class="footerHR" style="color:Black;background-color:Black;width:100%;" /></div>*@
+                <div class="col-xs-4"><a asp-controller="Home" asp-action="Index"><i class="material-icons fas fa-home" style="color:#db3545"></i></a></div>
+                <div class="col-xs-4"><a asp-controller="Rooms" asp-action="Index"><i class="fas fa-calendar-alt" style="color:#db3545"></i></a></div>
+                <div class="col-xs-4"><a asp-controller="BookedRooms" asp-action="Index"><i class="material-icons fas fa-user" style="color:#db3545"></i></a></div>
+            </div>
         </div>
-    </div>
+    }
+
 </body>
 </html>

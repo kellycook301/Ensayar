@@ -23,7 +23,6 @@ body {
 }
 
 /* Footer (secondary navbar) */
-
 .footerContainer {
     background-color: white;
     margin-top: auto;
@@ -36,14 +35,17 @@ body {
     bottom: 0;
 }
 
+/* Images And Icons */
 .schoolBand {
     width: 100%;
     height: 110%;
 }
 
-hr {
-    width: 100%;
-    right: -10%;
+.handPointDown {
+    width: 15%;
+    height: 15%;
+    margin: 0 auto;
+    display: inline-block;
 }
 
 .handContainer {
@@ -58,18 +60,17 @@ hr {
     display: inline-block;
 }
 
-.handPointDown {
-    width: 15%;
-    height: 15%;
-    margin: 0 auto;
-    display: inline-block;
-}
-
 .logo {
     color: #04a9f4;
     font-size: 2em;
 }
 
+hr {
+    width: 100%;
+    right: -10%;
+}
+
+/* Font Stuff */
 .panel-header {
     font-family: 'Hind Siliguri', sans-serif;
     font-weight: bold;
@@ -78,7 +79,7 @@ hr {
 
 .welcome, .chooseARoom, .pickBelow, .chooseYourRoom,
 .yourBookedRooms, .theseBookedRooms, .chooseYourTime,
-.takenTimes, .rUSure, .aboutUs, .contactUs, .roomDeets, .editYourTime {
+.takenTimes, .rUSure, .aboutUs, .contactUs, .roomDeets, .editYourTime, .registerHere {
     font-family: 'Hind Siliguri', sans-serif;
     font-weight: bold;
     text-align: center;
@@ -107,7 +108,8 @@ hr {
 }
 
 .welcome, .chooseYourRoom, .yourBookedRooms,
-.chooseYourTime, .rUSure, .aboutUs, .contactUs, .roomDeets, .editYourTime {
+.chooseYourTime, .rUSure, .aboutUs, .contactUs, .roomDeets, .editYourTime,
+.registerHere {
     padding-top: 0.5em;
 }
 
