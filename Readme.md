@@ -42,27 +42,21 @@ Whenever you would like to log out you may click on the "hamburger" icon in the 
 ------
 
 ## The Process
-Everything below details the process of how the app was created. All in all it was a fun and challenging process. I was thinking of ideas for what to do for my capstone. I remember Brenda (our main instructor for the front-end development class) saying that we should work on something that we enjoy. Because if your project isn't on something you're passionate about, then it becomes more of a chore. I remember browsing for icons on IconScout and found some PNGs of instruments. I then thought about making an app that will show a list of the music gear that you own and these icons could be displayed in cards for each entry. I then drew out how I would want the app to look (see below).
+Everything below details the process of how the app was created. The main piece of advice we got for the first capstone was to 
+do something that we were passionate about. I was thinking of maybe tackling other things, but when I thought about what to,
+a rehearsal space booking app was the one that made the most sense to me. There are great spots around town that do NOT have
+a great way of booking a time and a room. My frustration with them was the main source of inspiration for Ensayar. Someone
+came in before the final capstone sprint started and gave some great UI advice. I wanted the app to be simple and effective.
+I wasn't planning on having a lot of bells and whistles. Ensayar is the result.
 
-![alt text](https://github.com/kellycook301/GearList/blob/master/App%20Layout%201_final2.JPG)
+Projects that seem simple can be deceptively difficult. Even though I only had four tables in my ERD it still turned out to be
+kind of a pain. I still felt a little hazy on C# so there was a hurdle to get over. But being thrown into the fire was a great way to HAVE to learn fast.
 
-I knew we'd have to have a login page. I originally wanted to have separate sign in and register cards but the login proved to be quite a challenge, so I condensed it into a single sign in/register card. Fun!
+I knew that since Christmas break was quickly approaching and that I would have to juggle a LOT of family things around that time. So I made it my goal to complete the functionality before NSS would close for the break. Thankfully, the instructors were there to help me through my many rough patches. I completed the functionality on the last day. BIG WIN.
 
-![alt text](https://github.com/kellycook301/GearList/blob/master/App%20Layout%202_final2.JPG)
+Over the break I did minimal styling. Once school opened back up I made sure to come in and start the daunting task of making the app actually look good. Turns out the amount of time I set for myself was more than enough. I love the creative part of styling so it was actually a lot of fun, even though I burned my eyes out and had to buy blue-refracting glass.
 
-![alt text](https://github.com/kellycook301/GearList/blob/master/App%20Layout%203_final2.JPG)
-
-![alt text](https://github.com/kellycook301/GearList/blob/master/App%20Layout%204_final.jpg)
-
-The first day was spent trying to tackle the login portion of the process. I floundered the first day and started to work on the actual app the next day. I wanted to get the basic layout with the "add gear" button on the page. What I really wanted to implement were some forms contained within modals. Thankfully, ReactStrap had just what I needed. Because the instruments all have different criteria, I had to make a LOT of different forms. So there was going to be a lot of data passed in. I started with only a select few kinds of gear but realized I needed more for variety's sake. By the end of the first week I had pretty much met MVP. Data was getting passed in and populated to the DOM in card form. I was very happy. I just wanted to tighten up some of the things.
-
-I ran into some trouble with setting state in some areas. I was trying to figure out a cool way to have it work with the delete function. At first when you clicked on the trashcan icon to delete the post you would be prompted with the "localhost:3000 Would you like to delete this post?" thing and it would delete the post but it would still show it until the page refreshed. I found something to force reload the page, but hated the functionality of it. Because we're using React, it should just update state. I didn't end up fixing that until week three. By the end of week two I had pretty much fully met MVP. The login was working and you could easily edit and delete posts. One of my stretch goals was implementing different users. The following week proved to be very mentally challenging.
-
-During week three I came in to have someone guide me through the process of implementing different users. Meg, a teaching assistant, said it would be easier than I thought. Turns out my project was a little wonky and a LOT of bandaids needed to be placed onto my project to get it up and running the way I wanted. Serious shouts out to Brenda, Jenna, Meg, and Steve for their help and guidance. At one point I thought that I would be presenting my MVP project. Thankfully, it was all working the way I wanted.
-
-One thing I did to fix the force reload of the page was actually implement a delete modal. When you click on the trashcan a modal pops up with a message asking if you want to have the post deleted. You may choose to cancel or delete the post and it updates state. I also have a similar post applied to when you add something to your list. Instead of the "localhost:3000" message popping up, a modal appears confirming the addition of your post. I thought it would just look better that way.
-
-And here we are! All done. Very happy with the project even though there's some small stuff I wanted to have added. Here's a list of the plugins and things I used in my project.
+And here we are! All done. Very happy with the project even though there's some small stuff I wanted to have added. Here's some things I used in my project.
 
 * MVC for the UI
 * Iconscout for the various icons and images.
@@ -72,4 +66,4 @@ Shouts out to...
 * My Cohort for always wanting to see me succeed and being all around awesome!
 * My instructors Andy, Steve, Meg, and Kimmy! They were always willing to help when I was in a rut.
 * Coffee for keeping me ENERGIZED.
-* My my wife Jorden for believing me and always picking me up when I felt lost. My daughter Leven for being my main source of drive and inspiration. My parents for always being there. Thank you thank you thank you!
+* My my wife Jorden for believing me and always picking me up when I felt lost. My daughter Leven for being my main source of  drive and inspiration. My parents for always being there. Thank you thank you thank you!
