@@ -1,0 +1,42 @@
+﻿@model RealRehearsalSpace.Models.BookedRoom
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2 class="roomDeets">Room Details</h2>
+    </div>
+</div>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Room) :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Room.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeTableId) :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimeTable.BookTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookDate) :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookDate)
+        </dd>
+    </dl>
+</div>
+<hr />
+<div>
+    <div class="col-xs-2"><a asp-action="Index"><i class="fas fa-arrow-alt-circle-left fa-2x"></i></a></div>
+    <div class="col-xs-2"><a asp-action="Edit" asp-route-id="@Model.BookedRoomId"><i class="fas fa-edit fa-2x editButton" style="color:#7eb2dd"></i></a></div>
+    @*<a asp-action="Edit" asp-route-id="@Model.BookedRoomId">Edit</a> |*@
+    
+</div>

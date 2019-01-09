@@ -13,5 +13,7 @@ namespace RealRehearsalSpace.Models
 
         [Required]
         public string Name { get; set; }
+
+        public virtual ICollection<BookedRoom> BookedRooms { get; set; }
     }
 }
