@@ -124,7 +124,7 @@ using RealRehearsalSpace.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<hr />\r\n<div>\r\n    <div class=\"col-xs-2\">");
             EndContext();
             BeginContext(853, 76, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f489b3620c624f0688ac3a02827188b5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a2dc8fd1e65f42668f276467fc643a56", async() => {
                 BeginContext(875, 50, true);
                 WriteLiteral("<i class=\"fas fa-arrow-alt-circle-left fa-2x\"></i>");
                 EndContext();
@@ -146,7 +146,7 @@ using RealRehearsalSpace.Models;
             WriteLiteral("</div>\r\n    <div class=\"col-xs-2\">");
             EndContext();
             BeginContext(963, 126, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "436221e9663444519abd5e6e5dd6c104", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c6d097928bff4f53a66a6e10eab2521c", async() => {
                 BeginContext(1019, 66, true);
                 WriteLiteral("<i class=\"fas fa-edit fa-2x editButton\" style=\"color:#7eb2dd\"></i>");
                 EndContext();

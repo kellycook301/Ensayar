@@ -104,7 +104,7 @@ using RealRehearsalSpace.Models;
             WriteLiteral("</div>\r\n            <hr />\r\n            <div class=\"col-xs-2\">");
             EndContext();
             BeginContext(782, 114, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "db1f60bbdc2044689e6e208e6297c2c7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f6c53c889c2f4ee2bb5fc2af3fded53e", async() => {
                 BeginContext(837, 55, true);
                 WriteLiteral("<i class=\"fas fa-edit fa-2x\" style=\"color:#7eb2dd\"></i>");
                 EndContext();
@@ -139,7 +139,7 @@ using RealRehearsalSpace.Models;
             WriteLiteral("</div>\r\n            <div class=\"col-xs-2\">");
             EndContext();
             BeginContext(938, 128, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fafee8b41f174752a117932121775643", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b432bf96dddc493f8936b96730715522", async() => {
                 BeginContext(996, 66, true);
                 WriteLiteral("<i class=\"fas fa-question-circle fa-2x\" style=\"color:#445e93\"></i>");
                 EndContext();
@@ -174,7 +174,7 @@ using RealRehearsalSpace.Models;
             WriteLiteral("</div>\r\n            <div class=\"col-xs-2\">");
             EndContext();
             BeginContext(1108, 121, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "48965c00777e4428a7949e4f0859ffdc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9678f26abdd14eccbce66234366b1a4d", async() => {
                 BeginContext(1165, 60, true);
                 WriteLiteral("<i class=\"fas fa-trash-alt fa-2x\" style=\"color:#db3545\"></i>");
                 EndContext();
