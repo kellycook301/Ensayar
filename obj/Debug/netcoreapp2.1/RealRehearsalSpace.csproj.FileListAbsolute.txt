@@ -9,7 +9,6 @@ C:\Users\kelly\desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug
 C:\Users\kelly\desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\RealRehearsalSpace.csproj.CoreCompileInputs.cache
 C:\Users\kelly\desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\RealRehearsalSpace.RazorAssemblyInfo.cache
 C:\Users\kelly\desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\RealRehearsalSpace.RazorAssemblyInfo.cs
-C:\Users\kelly\desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\kelly\desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\RealRehearsalSpace.AssemblyInfoInputs.cache
 C:\Users\kelly\desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\RealRehearsalSpace.AssemblyInfo.cs
 C:\Users\kelly\desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\RealRehearsalSpace.TagHelpers.input.cache
@@ -39,3 +38,19 @@ C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug
 C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
 C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
 C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Create.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Delete.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Details.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Edit.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Index.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\TimeTables\Create.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\TimeTables\Delete.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\TimeTables\Details.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\TimeTables\Edit.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\TimeTables\Index.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\BookedRooms\Create.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\BookedRooms\Delete.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\BookedRooms\Details.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\BookedRooms\Edit.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\Razor\Views\BookedRooms\Index.g.cshtml.cs
+C:\Users\kelly\Desktop\workspace\RealRehearsalSpace\RealRehearsalSpace\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

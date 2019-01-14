@@ -39,13 +39,15 @@ namespace RealRehearsalSpace.Areas.Identity.Pages.Account
         {
             [Required]
             [EmailAddress]
+            [Display(Prompt = "Email")]
             public string Email { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
+            [Display(Prompt = "Password")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Stay Signed In")]
             public bool RememberMe { get; set; }
         }
 

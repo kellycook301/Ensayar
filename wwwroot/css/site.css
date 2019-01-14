@@ -1,31 +1,157 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
+
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 2em;
+    padding-bottom: 4em;
+    background-color: white;
 }
 
 /* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+/*Set some basic padding to keep content from hitting the edges*/ 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+/* NavBar */
+.navbar {
+    overflow: hidden;
+    position: fixed;
     width: 100%;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+/* Footer (secondary navbar) */
+.footerContainer {
+    background-color: white;
+    margin-top: auto;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    width: 125%;
+    display: inline-block;
+    font-size: 2.75em;
+    position: fixed;
+    bottom: 0;
+}
+
+/* Images And Icons */
+.schoolBand {
+    width: 100%;
+    height: 110%;
+}
+
+.handPointDown {
+    width: 15%;
+    height: 10%;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.handContainer {
+    text-align: center;
+    padding-bottom: 1.5em;
+}
+
+.rockstarContainer {
+    text-align: center;
+}
+
+.rockingOut {
+    display: inline-block;
+}
+
+.logo {
+    color: #04a9f4;
+    font-size: 2em;
+}
+
+hr {
+    width: 100%;
+    right: -10%;
+}
+
+.roomSelector {
+    margin-top: 3.5em;
+}
+
+/* Font Stuff */
+.panel-header {
+    font-family: 'Hind Siliguri', sans-serif;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.welcome, .chooseARoom, .pickBelow, .chooseYourRoom,
+.yourBookedRooms, .theseBookedRooms, .chooseYourTime,
+.takenTimes, .rUSure, .aboutUs, .contactUs, .roomDeets,
+.editYourTime, .registerHere {
+    font-family: 'Hind Siliguri', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.emailName, .passwordName, .rememberMe, .takenTimes {
+    font-size: 1.2em;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.forgot, .register, .back2List, .moreAboutUs, .back2ListOfBookedRooms,
+.aboutDrop, .contactDrop, .registerDrop, .loginDrop, .logoutDrop {
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.moreAboutUs, .address, .chooseARoom, .pickBelow, .theseBookedRooms {
+    font-size: 1.2em;
+}
+
+.bookBlock, .logInBlock, .saveBlock, .cancelBlock {
+    font-size: 1.3em;
+}
+
+.timeBooked, .dayBooked {
+    font-family: 'Hind Siliguri', sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.aboutDrop, .contactDrop, .registerDrop,
+.loginDrop, .logoutDrop {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.back2List, .highVolume {
+    padding-top: 1em;
+}
+
+.chooseARoom, .chooseYourRoom, .contactUs {
+    padding-bottom: 1em;
+}
+
+.register {
+    padding-left: 2.5em;
+}
+
+.welcome, .chooseYourRoom, .yourBookedRooms,
+.chooseYourTime, .rUSure, .aboutUs, .contactUs, .roomDeets, .editYourTime,
+.registerHere {
+    padding-top: 0.5em;
+}
+
+.chooseARoom {
+    padding-top: 1em;
+}
+
+.roomHeader {
+    font-family: 'Hind Siliguri', sans-serif;
+    font-weight: bold;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.pickBelow {
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 /* Hide/rearrange for smaller screens */

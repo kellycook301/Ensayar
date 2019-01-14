@@ -19,5 +19,7 @@ namespace RealRehearsalSpace.Models
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
+        public virtual ICollection<BookedRoom> BookedRooms { get; set; }
     }
 }

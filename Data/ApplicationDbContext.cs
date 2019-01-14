@@ -14,5 +14,9 @@ namespace RealRehearsalSpace.Data
         {
         }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<BookedRoom> BookedRooms { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<TimeTable> TimeTables { get; set; }
+
     }
 }

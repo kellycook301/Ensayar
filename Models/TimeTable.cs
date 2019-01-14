@@ -9,9 +9,11 @@ namespace RealRehearsalSpace.Models
     public class TimeTable
     {
         [Key]
-        public int TimetableId { get; set; }
+        public int TimeTableId { get; set; }
 
         [Required]
         public string BookTime { get; set; }
+
+        public virtual ICollection<BookedRoom> BookedRooms { get; set; }
     }
 }
