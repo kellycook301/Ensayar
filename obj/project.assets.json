@@ -12263,11 +12263,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kelly\\Desktop\\workspace\\RealRehearsalSpace\\RealRehearsalSpace\\RealRehearsalSpace.csproj",
+      "projectUniqueName": "C:\\Users\\kelly\\desktop\\workspace\\RealRehearsalSpace\\RealRehearsalSpace\\RealRehearsalSpace.csproj",
       "projectName": "RealRehearsalSpace",
-      "projectPath": "C:\\Users\\kelly\\Desktop\\workspace\\RealRehearsalSpace\\RealRehearsalSpace\\RealRehearsalSpace.csproj",
+      "projectPath": "C:\\Users\\kelly\\desktop\\workspace\\RealRehearsalSpace\\RealRehearsalSpace\\RealRehearsalSpace.csproj",
       "packagesPath": "C:\\Users\\kelly\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kelly\\Desktop\\workspace\\RealRehearsalSpace\\RealRehearsalSpace\\obj\\",
+      "outputPath": "C:\\Users\\kelly\\desktop\\workspace\\RealRehearsalSpace\\RealRehearsalSpace\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12330,5 +12330,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\kelly\\desktop\\workspace\\RealRehearsalSpace\\RealRehearsalSpace\\obj\\RealRehearsalSpace.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
