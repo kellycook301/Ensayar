@@ -44,6 +44,8 @@ Let's say that you want to change the time you would like to be in the room. In 
 ## Cancelling A Session
 Now let's say you would like to cancel that time altogether. In the list of your booked times, click on the "trash can" icon. You will be presented with a view asking if you would like to cancel. Confirm by selecting the "cancel session" button.
 
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Delete_Post.png)
+
 ## Logging Out
 Whenever you would like to log out you may click on the "hamburger" icon in the upper right-hand corner and select "logout."
 
