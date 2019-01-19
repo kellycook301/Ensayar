@@ -1,6 +1,6 @@
 
 # Hello And Welcome To Ensayar!
-![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Ensayar_Home_Screen_Test3.png)
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Ensayar_Screenshots.png)
 
 ## Why I Created This App
 I was filling in on guitar for one band that was based out of Atlanta, GA. They were more established, had a few tours under their belt, and some momentum in the scene. They had booked a show at a venue in Nashville one night and we needed to get together that afternoon to run over the set. The normal rehearsal spot that I used was already booked that day and there was a scramble to find a suitable place for us to practice. I remembered there was an amazing rehearsal spot not too far from the venue. I gave them a call and it went straight to voicemail. It wasn't an office phone or anything...it was someone's personal cell phone. I had to wait for the person to give me a call back so I could confirm a time and room to book. Thankfully, we were able to secure the room, but I knew the process could have been much easier if they was an intuitive app that would allow me to do it all from my phone. When it came time to create an application for my server-side project, I knew exactly what to do! 
