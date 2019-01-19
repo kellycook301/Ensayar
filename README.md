@@ -58,9 +58,13 @@ You will be presented with a view where you can change and save the time. Once a
 ![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Save_Your_Time.png)
 
 ## Cancelling A Session
-Now let's say you would like to cancel that time altogether. In the list of your booked times, click on the "trash can" icon. You will be presented with a view asking if you would like to cancel. Confirm by selecting the "cancel session" button.
+Now let's say you would like to cancel that time altogether. In the list of your booked times, click on the "trash can" icon.
 
 ![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Delete_Post.png)
+
+You will be presented with a view asking if you would like to cancel. Confirm by selecting the "cancel session" button.
+
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Cancel_Session.png)
 
 ## Logging Out
 Whenever you would like to log out you may click on the "hamburger" icon in the upper right-hand corner and select "logout."
