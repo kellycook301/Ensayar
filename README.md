@@ -34,7 +34,7 @@ Here you will see a landing page. The calendar icon will let you book a room and
 ## Booking A Room
 To book your first room click on the calendar icon. You will be taken to a page where you may select a room that you want to book. After selecting a room you will be presented with a drop down menu asking for what time you would like to book. Times taken in that room by another user will not be present. After booking the room it will be added to your list of booked rooms! You may see the list by clicking on the account button in the bottom right-hand corner.
 
-
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Chose_Calendar.png)
 
 ## Editing The Time
 Let's say that you want to change the time you would like to be in the room. In the list of your booked rooms click on the "pencil" icon. You will be presented with a view where you can change and save the time. Once again, the times that are taken will not be listed.
