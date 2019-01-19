@@ -49,6 +49,8 @@ Now let's say you would like to cancel that time altogether. In the list of your
 ## Logging Out
 Whenever you would like to log out you may click on the "hamburger" icon in the upper right-hand corner and select "logout."
 
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Logout_Cursor.png)
+
 ------
 
 ## The Process
