@@ -5,6 +5,15 @@
 ## Why I Created This App
 I was filling in on guitar for one band that was based out of Atlanta, GA. They were more established, had a few tours under their belt, and some momentum in the scene. They had booked a show at a venue in Nashville one night and we needed to get together that afternoon to run over the set. The normal rehearsal spot that I used was already booked that day and there was a scramble to find a suitable place for us to practice. I remembered there was an amazing rehearsal spot not too far from the venue. I gave them a call and it went straight to voicemail. It wasn't an office phone or anything...it was someone's personal cell phone. I had to wait for the person to give me a call back so I could confirm a time and room to book. Thankfully, we were able to secure the room, but I knew the process could have been much easier if they was an intuitive app that would allow me to do it all from my phone. When it came time to create an application for my server-side project, I knew exactly what to do! 
 
+## The Tech
+* C#
+* ASP.NET MVC for the UI
+* Entity Framework
+* HTML5
+* CSS
+* Iconscout for various icons and images
+* Font Awesome for additional icons
+
 ## Launching The App
 
 Let's get the app set up first.
@@ -53,9 +62,6 @@ Over the break I did minimal styling. Once school opened back up I made sure to 
 
 And here we are! All done. Very happy with the project even though there's some small stuff I wanted to have added. Here's some things I used in my project.
 
-* MVC for the UI
-* Iconscout for the various icons and images.
-* Font Awesome for the trash can, pencil, and details icons
 
 Shouts out to...
 * My Cohort for always wanting to see me succeed and being all around awesome!
