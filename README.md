@@ -49,9 +49,13 @@ Times taken in that room by another user will not be present. After booking the 
 ![alt text](https://github.com/kellycook301/finalCapstone/blob/master/See_Account.png)
 
 ## Editing The Time
-Let's say that you want to change the time you would like to be in the room. In the list of your booked rooms click on the "pencil" icon. You will be presented with a view where you can change and save the time. Once again, the times that are taken will not be listed.
+Let's say that you want to change the time you would like to be in the room. In the list of your booked rooms click on the "pencil" icon.
 
 ![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Edit_Post.png)
+
+You will be presented with a view where you can change and save the time. Once again, the times that are taken will not be listed.
+
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Save_Your_Time.png)
 
 ## Cancelling A Session
 Now let's say you would like to cancel that time altogether. In the list of your booked times, click on the "trash can" icon. You will be presented with a view asking if you would like to cancel. Confirm by selecting the "cancel session" button.
