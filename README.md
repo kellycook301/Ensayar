@@ -36,42 +36,42 @@ Here you will see a landing page. The calendar icon will let you book a room and
 ## Booking A Room
 To book your first room click on the calendar icon.
 
-![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Chose_Calendar.png)
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/READMEImages/Chose_Calendar.png)
 
 You will be taken to a page where you may select a room that you want to book.
 
-![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Choosing_Which_Room.png)
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/READMEImages/Choosing_Which_Room.png)
 
 After selecting a room you will be presented with a drop down menu asking for what time you would like to book.
 
-![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Choose_What_Time.png)
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/READMEImages/Choose_What_Time.png)
 
 Times taken in that room by another user will not be present. After booking the room it will be added to your list of booked rooms! You may see the list by clicking on the account button in the bottom right-hand corner.
 
-![alt text](https://github.com/kellycook301/finalCapstone/blob/master/See_Account.png)
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/READMEImages/See_Account.png)
 
 ## Editing The Time
 Let's say that you want to change the time you would like to be in the room. In the list of your booked rooms click on the "pencil" icon.
 
-![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Edit_Post.png)
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/READMEImages/Edit_Post.png)
 
 You will be presented with a view where you can change and save the time. Once again, the times that are taken will not be listed.
 
-![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Save_Your_Time.png)
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/READMEImages/Save_Your_Time.png)
 
 ## Cancelling A Session
 Now let's say you would like to cancel that time altogether. In the list of your booked times, click on the "trash can" icon.
 
-![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Delete_Post.png)
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/READMEImages/Delete_Post.png)
 
 You will be presented with a view asking if you would like to cancel. Confirm by selecting the "cancel session" button.
 
-![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Cancel_Session.png)
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/READMEImages/Cancel_Session.png)
 
 ## Logging Out
 Whenever you would like to log out you may click on the "hamburger" icon in the upper right-hand corner and select "logout."
 
-![alt text](https://github.com/kellycook301/finalCapstone/blob/master/Logout_Cursor.png)
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/READMEImages/Logout_Cursor.png)
 
 ------
 
