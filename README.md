@@ -16,6 +16,9 @@ I was filling in on guitar for one band that was based out of Atlanta, GA. They 
 * Iconscout for various icons and images
 * Font Awesome for additional icons
 
+## The ERD
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/READMEImages/EnsayarERD.png)
+
 ## Launching The App
 
 Let's get the app set up first.
