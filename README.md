@@ -1,6 +1,6 @@
 
 # Hello And Welcome To Ensayar!
-![alt text](https://github.com/kellycook301/finalCapstone/blob/master/App_Screenshots.png)
+![alt text](https://github.com/kellycook301/finalCapstone/blob/master/READMEImages/App_Screenshots.png)
 
 Ensayar is a mobile app where musicians can book rooms and times so that they can spend *less* time finding a room and spend *more* time what you love doing...playing!
 
