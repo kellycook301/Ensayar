@@ -95,8 +95,9 @@ hr {
     font-family: 'Hind Siliguri', sans-serif;
 }
 
-.forgot, .register, .back2List, .moreAboutUs, .back2ListOfBookedRooms,
-.aboutDrop, .contactDrop, .registerDrop, .loginDrop, .logoutDrop {
+.forgot, .register, .back2List, .moreAboutUs,
+.back2ListOfBookedRooms, .aboutDrop, .contactDrop,
+.registerDrop, .loginDrop, .logoutDrop, .accountDrop {
     font-family: 'Hind Siliguri', sans-serif;
 }
 
@@ -115,7 +116,7 @@ hr {
 }
 
 .aboutDrop, .contactDrop, .registerDrop,
-.loginDrop, .logoutDrop {
+.loginDrop, .logoutDrop, .accountDrop {
     font-weight: bold;
     font-size: 1.2em;
 }
