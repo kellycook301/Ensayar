@@ -80,11 +80,8 @@ Whenever you would like to log out you may click on the "hamburger" icon in the 
 
 ## The Process
 Everything below details the process of how the app was created. The main piece of advice we got for the first capstone was to 
-do something that we were passionate about. I was thinking of maybe tackling other things, but when I thought about what to,
-a rehearsal space booking app was the one that made the most sense to me. There are great spots around town that do NOT have
-a great way of booking a time and a room. My frustration with them was the main source of inspiration for Ensayar. Someone
-came in before the final capstone sprint started and gave some great UI advice. I wanted the app to be simple and effective.
-I wasn't planning on having a lot of bells and whistles. Ensayar is the result.
+do something that we were passionate about. I was thinking of maybe creating an application with a different purpose, but due to a negative personal experience, a rehearsal space booking app was the one that made the most sense to me. There are great spots around town that do NOT have
+a great way of booking a time and a room. My frustration with them was the main source of inspiration for Ensayar. A UI designer came in before the final capstone sprint started and gave some great UI advice. I wanted the app to be simple and effective. I wasn't planning on having a lot of bells and whistles, but I do have future plans for it with additional features. Ensayar is the result.
 
 Projects that seem simple can be deceptively difficult. Even though I only had four tables in my ERD it still turned out to be
 kind of a pain. I still felt a little hazy on C# so there was a hurdle to get over. But being thrown into the fire was a great way to HAVE to learn fast.
@@ -93,11 +90,8 @@ I knew that since Christmas break was quickly approaching and that I would have 
 
 Over the break I did minimal styling. Once school opened back up I made sure to come in and start the daunting task of making the app actually look good. Turns out the amount of time I set for myself was more than enough. I love the creative part of styling so it was actually a lot of fun, even though I burned my eyes out and had to buy blue-refracting glass.
 
-And here we are! All done. Very happy with the project even though there's some small stuff I wanted to have added. Here's some things I used in my project.
-
-
 Shouts out to...
-* My Cohort for always wanting to see me succeed and being all around awesome!
+* My Cohort for always wanting to see me succeed and being all-around awesome!
 * My instructors Andy, Steve, Meg, and Kimmy! They were always willing to help when I was in a rut.
 * Coffee for keeping me ENERGIZED.
 * My my wife Jorden for believing me and always picking me up when I felt lost. My daughter Leven for being my main source of  drive and inspiration. My parents for always being there. Thank you thank you thank you!
